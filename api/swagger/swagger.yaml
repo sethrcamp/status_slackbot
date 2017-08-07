@@ -1,0 +1,94 @@
+swagger: "2.0"
+info:
+  version: "1.0"
+  title: StatusBot
+  description: "A backend for StatusBot"
+# during dev, should point to your local machine
+host: localhost:8888
+# basePath prefixes all resource paths 
+basePath: /status_slackbot/
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /message:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: message
+    post:
+      summary: Send Message
+      description: Sends a Slack message to a user
+      # used as the method name of the controller
+      operationId: sendMessage
+      tags: 
+        - message
+      parameters:
+        - name: body
+          in: body
+          description: JSON Body including the Slack user and message
+          required: true
+          schema:
+            $ref: "#/definitions/PostBody"
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/SuccessResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
+  SuccessResponse:
+    required:
+      - message
+      - error
+    properties:
+      message:
+        type: string
+        default: "Success"
+      error: 
+        type: boolean
+        default: false
+  ErrorResponse:
+    required:
+      - message
+      - error
+    properties:
+      message:
+        type: string
+      error:
+        type: boolean
+        default: true
+  PostBody:
+    type: object
+    required:
+      - user
+      - message
+    properties:
+      user:
+        type: string
+        default: "slackbot"
+      message:
+        type: string
+        default: "Hello World"
+  PostAdminBody:
+    type: object
+    required:
+      - message
+    properties:
+      message:
+        type: string
+        default: "Hello World"

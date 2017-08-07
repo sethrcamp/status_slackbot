@@ -1,0 +1,43 @@
+
+.swagger-section .operations h4
+{
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.swagger-section .operations form.sandbox h4.collapsed {
+    color: #44c7f4;
+}
+
+.swagger-section .operations form.sandbox h4::before {
+    content: "▲";
+    animation: ease-in;
+}
+
+.swagger-section .operations form.sandbox h4.collapsed::before {
+    content: "▼";
+}
+
+.swagger-section .operations h4.sample-title:hover,
+.swagger-section .operations h4.schema-title:hover
+{
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.swagger-section .operations h4.sample-title:not(.collapsed),
+.swagger-section .operations h4.schema-title:not(.collapsed){
+    color: rgb(78, 87, 94);
+    background-color: #44c7f4;
+}
+
+.swagger-section .operations h4.sample-title:not(.collapsed):hover,
+.swagger-section .operations h4.schema-title:not(.collapsed):hover{
+    background-color: rgba(68, 199, 255, 0.15);
+}
+
+.swagger-section .operations h4.sample-title:active,
+.swagger-section .operations h4.schema-title:active
+{
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    color: rgba(0, 0, 0, 0.3);
+}
