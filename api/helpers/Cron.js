@@ -1,8 +1,8 @@
 const request = require('request');
 const StatusBot = require('./StatusBot.js');
 
-const cronUrl = 'http://localhost:8888/status_backend/cron';
-// const cronUrl = 'https://apso.bsu.edu/2016/equipment_checkout/backend/api/v2/reservation.validate';
+// const cronUrl = 'http://localhost:8888/status_backend/cron';
+const cronUrl = 'http://165.227.69.214/status_backend/cron';
 
 module.exports = {
   runJob: function() {
