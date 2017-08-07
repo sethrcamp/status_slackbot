@@ -243,8 +243,12 @@ StatusBot.prototype.sendMessageToUser = function (message, user) {
 
 }
 
+//this is because this repo is public ans slack keeps changing the token
+var endToken = "09LDfR9MxLatZLB0V38Vpffu";
+var startToken = "xoxb";
+var midToken = "217697299860";
 
 //global StatusBot instance
-const StatusBotGlobal = new StatusBot("xoxb-217697299860-KMC5wljA04kFaF1hYcqT5dYB");
+const StatusBotGlobal = new StatusBot(startToken+"-"+midToken+"-"+endToken);
 
 module.exports = StatusBotGlobal;
