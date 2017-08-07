@@ -245,6 +245,6 @@ StatusBot.prototype.sendMessageToUser = function (message, user) {
 
 
 //global StatusBot instance
-const StatusBotGlobal = new StatusBot("xoxb-217697299860-OKRiBXgsxDk3z2sKlEUj85r7");
+const StatusBotGlobal = new StatusBot("xoxb-217697299860-tpdeZ0dlffcnXbv3gC1t0kpy");
 
 module.exports = StatusBotGlobal;
