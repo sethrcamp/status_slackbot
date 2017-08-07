@@ -10,7 +10,7 @@ module.exports = {
     request(cronUrl, function(error, response, body){
       if (!error){
         var parsed = JSON.parse(body);
-        console.info(parsed.msg);
+        console.info(parsed.error);
       }
     });
   }
